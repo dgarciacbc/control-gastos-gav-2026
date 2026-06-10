@@ -17,7 +17,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
 .card{background:#1a1d2e;border:1px solid #2d3748;border-radius:12px;padding:18px;cursor:pointer;transition:transform .15s,border-color .15s}
 .card:hover{transform:translateY(-2px);border-color:#4a5568}
 .card.active{border-color:var(--c)!important}
-.card::before{content:'';display:block;height:3px;border-radius:3px;margin-bottom:14px;background:var(--c)}
+.card-topbar{height:4px;border-radius:4px;margin-bottom:14px;overflow:hidden;background:rgba(255,255,255,.07)}
+.card-topbar-fill{height:100%;border-radius:4px;transition:width .6s ease}
 .card .empresa{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--c);margin-bottom:8px}
 .card .real-val{font-size:1.45rem;font-weight:800;color:#fff;letter-spacing:-.5px}
 .card .sub{font-size:.7rem;color:#718096;margin:3px 0 12px}
@@ -150,7 +151,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
     <div style="font-size:.73rem;color:#718096;margin-top:3px">El Honesto Mike · Grupo CBC · Junio 2026</div>
   </div>
   <div class="meta">
-    <div><strong>Dashboard:</strong> 10/06/2026 12:42</div>
+    <div><strong>Dashboard:</strong> 10/06/2026 13:00</div>
     <div><strong>DTE actualizado:</strong> 10/06/2026 11:34</div>
     <div><strong>Fuente:</strong> DTE Junio 2026 (Google Drive) · PPTO GAV 2026</div>
     <div><strong>Valores:</strong> CLP neto sin IVA</div>
@@ -288,8 +289,11 @@ function renderCards(){
     const d = DATA[emp];
     const confW = d.total_ppto ? Math.min(d.total_conf/d.total_ppto*100,100) : 0;
     const posW  = d.total_ppto ? Math.min((d.total_conf+d.total_pos)/d.total_ppto*100,100)-confW : 0;
+    const topPct = d.total_ppto ? Math.min(d.pct_total,100) : 0;
+    const topColor = d.pct_total===null ? '#4a5568' : d.pct_total>=100 ? '#fc5a5a' : d.pct_total>=85 ? '#fc8181' : d.pct_total>=50 ? '#f6ad55' : d.color;
     const isActive = emp===activeEmp ? 'active' : '';
     return `<div class="card ${isActive}" style="--c:${d.color}" onclick="selectEmp('${emp}')">
+      <div class="card-topbar"><div class="card-topbar-fill" style="width:${topPct}%;background:${topColor}"></div></div>
       <div class="empresa">${emp}</div>
       <div class="real-val">${fmtPlain(d.total_conf)}</div>
       <div class="sub">confirmado${d.total_pos>0 ? ` <span class="pill pill-pos">+${fmtPlain(d.total_pos)} posible</span>`:''}
