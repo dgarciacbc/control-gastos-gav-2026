@@ -151,7 +151,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
     <div style="font-size:.72rem;color:#63b3ed;margin-top:5px">&#128260; Ultima actualizacion: <strong style="color:#90cdf4">22/06/2026</strong></div>
   </div>
   <div class="meta">
-    <div><strong>Dashboard:</strong> 22/06/2026 13:31</div>
+    <div><strong>Dashboard:</strong> 22/06/2026 14:12</div>
     <div><strong>DTE actualizado:</strong> 22/06/2026</div>
     <div><strong>Fuente:</strong> DTE Junio 2026 (Google Drive) · PPTO GAV 2026</div>
     <div><strong>Valores:</strong> CLP neto sin IVA</div>
@@ -266,8 +266,11 @@ function fmt(n){
 }
 function fmtPlain(n){return '$'+Math.abs(Math.round(n)).toLocaleString('es-CL');}
 
-function badgePct(pct){
-  if(pct===null) return '<span class="badge b-na">s/PPTO</span>';
+function badgePct(pct, hasSinPpto){
+  if(pct===null) {
+    if(hasSinPpto) return '<span class="badge b-excede">⚠ Sin PPTO</span>';
+    return '<span class="badge b-na">s/PPTO</span>';
+  }
   if(pct<50)   return `<span class="badge b-ok">${pct}%</span>`;
   if(pct<85)   return `<span class="badge b-aviso">${pct}%</span>`;
   if(pct<=100) return `<span class="badge b-cerca">${pct}%</span>`;
@@ -369,8 +372,9 @@ function renderCatRows(cats, idPrefix) {
     const confW = c.ppto?Math.min(c.confirmado/c.ppto*100,100):(c.confirmado>0?100:0);
     const posW  = c.ppto?Math.min((c.confirmado+c.posible)/c.ppto*100,100)-confW:(c.posible>0?30:0);
     const bc=barColor(c.pct), dispColor=c.disponible>=0?'#68d391':'#fc5a5a';
+    const hasSinPpto = c.ppto===0 && (c.confirmado>0||c.posible>0);
     const rowId = idPrefix+'-'+i;
-    let html = '<div class="cat-row">';
+    let html = '<div class="cat-row"'+(hasSinPpto?' style="border-left:3px solid #f6ad55"':'')+'>';
     html += '<div class="cat-header" id="hdr-'+rowId+'"" data-r="'+rowId+'" onclick="toggleRow(this.dataset.r)">';
     html += '<div class="cat-name">'+c.cat+'</div>';
     html += '<div class="cat-bar-wrap"><div class="cat-bar-bg">';
@@ -379,9 +383,10 @@ function renderCatRows(cats, idPrefix) {
     html += '</div></div>';
     html += '<div class="col-r">'+fmt(c.confirmado)+'</div>';
     html += '<div class="col-p">'+(c.posible>0?fmt(c.posible):'<span style="color:#4a5568">$0</span>')+'</div>';
-    html += '<div class="col-b">'+(c.ppto>0?fmtPlain(c.ppto):'—')+'</div>';
-    html += '<div class="col-d" style="color:'+dispColor+'">'+(c.ppto>0?fmtPlain(c.disponible):'—')+'</div>';
-    html += '<div class="col-pct">'+badgePct(c.pct)+'</div>';
+    html += '<div class="col-b">'+(c.ppto>0?fmtPlain(c.ppto):(hasSinPpto?'<span style="color:#f6ad55;font-weight:700">$0</span>':'—'))+'</div>';
+    const dispShow = c.ppto>0 ? fmtPlain(c.disponible) : (c.confirmado>0 ? '<span style="color:#fc5a5a;font-weight:700">-'+fmtPlain(c.confirmado)+'</span>' : (c.posible>0?'<span style="color:#fc8181">-'+fmtPlain(c.posible)+'</span>':'—'));
+    html += '<div class="col-d" style="color:'+(c.ppto>0?dispColor:(hasSinPpto?'#fc5a5a':'#4a5568'))+'">'+dispShow+'</div>';
+    html += '<div class="col-pct">'+badgePct(c.pct,hasSinPpto)+'</div>';
     html += '<div class="chevron" id="chev-'+rowId+'">▼</div>';
     html += '</div>';
     html += '<div class="facturas-wrap" id="fw-'+rowId+'">';
