@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GAV Dashboard — Junio 2026</title>
+<title>GAV Dashboard — 2026</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh}
@@ -12,7 +12,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
 .header .meta{font-size:.73rem;color:#718096;text-align:right;line-height:1.7}
 .header .meta strong{color:#a0aec0}
 .main{padding:22px 32px;max-width:1400px;margin:0 auto}
-/* CARDS */
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
 .card{background:#1a1d2e;border:1px solid #2d3748;border-radius:12px;padding:18px;cursor:pointer;transition:transform .15s,border-color .15s}
 .card:hover{transform:translateY(-2px);border-color:#4a5568}
@@ -27,7 +26,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
 .bar-pos{height:100%;background:rgba(144,205,244,.35);flex-shrink:0;transition:width .5s}
 .pill{display:inline-block;font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:99px}
 .pill-pos{background:#1a2a3a;color:#90cdf4;margin-left:5px}
-/* STRIP */
 .strip{background:#1a1d2e;border:1px solid #2d3748;border-radius:12px;padding:14px 22px;margin-bottom:22px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
 .strip .t-label{font-size:.68rem;color:#718096;text-transform:uppercase;letter-spacing:1px}
 .strip .t-val{font-size:1.05rem;font-weight:800;color:#fff;margin-top:2px}
@@ -37,13 +35,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
 .strip .bigbar-bg{background:#2d3748;border-radius:99px;height:8px;overflow:hidden;margin-top:7px;position:relative}
 .strip .bigbar-conf{height:100%;border-radius:99px 0 0 99px;background:linear-gradient(90deg,#4299e1,#63b3ed);position:absolute}
 .strip .bigbar-pos{height:100%;background:rgba(144,205,244,.3);position:absolute}
-/* DETAIL PANEL */
 .detail-panel{background:#1a1d2e;border:1px solid #2d3748;border-radius:12px;overflow:hidden;margin-bottom:22px}
 .dp-header{padding:14px 20px;border-bottom:1px solid #2d3748;display:flex;align-items:center;justify-content:space-between}
 .dp-title{font-size:.85rem;font-weight:700}
 .dp-totals{font-size:.72rem;color:#718096;display:flex;gap:18px}
 .dp-totals span{color:#a0aec0}
-/* CAT ROWS */
 .cat-row{border-bottom:1px solid #1e2233}
 .cat-row:last-child{border-bottom:none}
 .cat-header{display:grid;grid-template-columns:220px 1fr 110px 110px 110px 110px 80px 44px;align-items:center;padding:11px 20px;cursor:pointer;transition:background .1s}
@@ -65,7 +61,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
 .b-ok{background:#1a3a2a;color:#68d391}.b-aviso{background:#3a2e1a;color:#f6ad55}
 .b-cerca{background:#3a2a1a;color:#fc8181}.b-excede{background:#3a1a1a;color:#fc5a5a}
 .b-na{background:#2d3748;color:#718096}
-/* FACTURAS EXPANDIDAS */
 .facturas-wrap{display:none;background:#13151f;border-top:1px solid #2d3748}
 .facturas-wrap.open{display:block}
 .fact-section{padding:12px 20px 12px 36px}
@@ -83,22 +78,18 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
 .fact-table tr:hover td{background:#1a1d2e}
 .nc-badge{font-size:.6rem;padding:1px 5px;border-radius:3px;background:#2a1a3a;color:#d6bcfa;margin-left:4px}
 .empty-msg{font-size:.73rem;color:#4a5568;padding:8px 0;font-style:italic}
-/* LEGEND */
 .legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
 .legend-dot{width:9px;height:9px;border-radius:99px;display:inline-block}
 .legend-item{display:flex;align-items:center;gap:5px;font-size:.68rem;color:#718096}
-/* TABLE HEADER LABELS */
 .th-labels{display:grid;grid-template-columns:220px 1fr 110px 110px 110px 110px 80px 44px;padding:6px 20px;background:#13151f;border-bottom:1px solid #2d3748}
 .th-labels span{font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.7px;color:#4a5568;text-align:right}
 .th-labels span:first-child{text-align:left}
 .th-labels span:nth-child(2){text-align:left}
-/* FILTER GROUP */
-.filter-group{display:flex;align-items:center;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.filter-group{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
 .fg-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#4a5568;margin-right:4px}
 .fg-btn{background:#1a1d2e;border:1px solid #2d3748;color:#718096;font-size:.75rem;font-weight:600;padding:6px 16px;border-radius:99px;cursor:pointer;transition:all .15s}
 .fg-btn:hover{border-color:#4a5568;color:#a0aec0}
 .fg-btn.active{background:#2d3748;border-color:#63b3ed;color:#63b3ed}
-/* SIN CLASIFICAR PANEL */
 .sc-panel{background:#1a1d2e;border:1px solid #744210;border-radius:12px;overflow:hidden;margin-bottom:22px}
 .sc-header{padding:14px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .1s}
 .sc-header:hover{background:#1e2035}
@@ -111,7 +102,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
   document.addEventListener('DOMContentLoaded',function(){
     var ov=document.createElement('div');
     ov.id='auth-overlay';
-    ov.innerHTML='<div class="auth-box"><div class="auth-logo">🔐</div><h2>Control de Gastos GAV 2026</h2><p>Ingresa la contraseña para continuar</p><input type="password" id="auth-input" placeholder="Contraseña" autofocus><div id="auth-err" style="color:#fc5a5a;display:none;margin-bottom:10px;font-size:.85rem">Contraseña incorrecta</div><button onclick="checkAuth()">Entrar</button></div>';
+    ov.innerHTML='<div class="auth-box"><div class="auth-logo">&#128272;</div><h2>Control de Gastos GAV 2026</h2><p>Ingresa la contrasena para continuar</p><input type="password" id="auth-input" placeholder="Contrasena" autofocus><div id="auth-err" style="color:#fc5a5a;display:none;margin-bottom:10px;font-size:.85rem">Contrasena incorrecta</div><button onclick="checkAuth()">Entrar</button></div>';
     ov.style.cssText='position:fixed;inset:0;background:#0f1117;z-index:9999;display:flex;align-items:center;justify-content:center;font-family:Segoe UI,sans-serif';
     document.body.style.overflow='hidden';
     document.body.appendChild(ov);
@@ -147,28 +138,37 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
 <div class="header">
   <div>
     <h1>Control de Gastos <span>GAV</span></h1>
-    <div style="font-size:.73rem;color:#718096;margin-top:3px">El Honesto Mike · Grupo CBC · Junio 2026</div>
-    <div style="font-size:.72rem;color:#63b3ed;margin-top:5px">&#128260; Ultima actualizacion: <strong style="color:#90cdf4">01/07/2026</strong></div>
+    <div style="font-size:.73rem;color:#718096;margin-top:3px">El Honesto Mike · Grupo CBC · 2026</div>
+    <div style="font-size:.72rem;color:#63b3ed;margin-top:5px" id="hdr-actualizacion"></div>
   </div>
   <div class="meta">
-    <div><strong>Dashboard:</strong> 01/07/2026 10:19</div>
-    <div><strong>DTE actualizado:</strong> 01/07/2026</div>
-    <div><strong>Fuente:</strong> DTE Junio 2026 (Google Drive) · PPTO GAV 2026</div>
+    <div><strong>Dashboard:</strong> 01/07/2026 12:34</div>
+    <div><strong>Jun actualizado:</strong> 01/07/2026</div>
+    <div><strong>Jul actualizado:</strong> —</div>
     <div><strong>Valores:</strong> CLP neto sin IVA</div>
   </div>
 </div>
 
 <div class="main">
 
-<!-- FILTROS GRUPO -->
+<!-- FILTRO MES -->
+<div class="filter-group">
+  <span class="fg-label">Mes:</span>
+  <button class="fg-btn active" onclick="setMes('junio',this)">Junio 2026</button>
+  <button class="fg-btn" onclick="setMes('julio',this)">Julio 2026</button>
+  <button class="fg-btn" onclick="setMes('acumulado',this)">Acumulado</button>
+</div>
+
+<!-- FILTRO GRUPO -->
 <div class="filter-group">
   <span class="fg-label">Grupo:</span>
-  <button class="fg-btn active" data-group="all" onclick="setGrupo('all',this)">Todos</button>
-  <button class="fg-btn" data-group="El Honesto Mike" onclick="setGrupo('El Honesto Mike',this)">El Honesto Mike</button>
-  <button class="fg-btn" data-group="Grupo Cervecero" onclick="setGrupo('Grupo Cervecero',this)">Grupo Cervecero</button>
+  <button class="fg-btn active" onclick="setGrupo('all',this)">Todos</button>
+  <button class="fg-btn" onclick="setGrupo('El Honesto Mike',this)">El Honesto Mike</button>
+  <button class="fg-btn" onclick="setGrupo('Grupo Cervecero',this)">Grupo Cervecero</button>
 </div>
+
 <!-- CARDS -->
-<div class="cards show-all" id="cards"></div>
+<div class="cards" id="cards"></div>
 
 <!-- STRIP -->
 <div class="strip">
@@ -176,12 +176,12 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
   <div class="div"></div>
   <div><div class="t-label">Posibles</div><div class="t-val" style="color:#90cdf4" id="s-pos"></div></div>
   <div class="div"></div>
-  <div><div class="t-label">PPTO Junio Total</div><div class="t-val" id="s-ppto"></div></div>
+  <div><div class="t-label" id="s-ppto-label">PPTO Junio Total</div><div class="t-val" id="s-ppto"></div></div>
   <div class="div"></div>
   <div><div class="t-label">Disponible</div><div class="t-val g" id="s-disp"></div></div>
   <div class="div"></div>
   <div class="bigbar">
-    <div class="t-label">Ejecución consolidada — <strong id="s-pct" style="color:#63b3ed"></strong></div>
+    <div class="t-label">Ejecucion consolidada — <strong id="s-pct" style="color:#63b3ed"></strong></div>
     <div class="bigbar-bg">
       <div class="bigbar-pos" id="bb-pos"></div>
       <div class="bigbar-conf" id="bb-conf"></div>
@@ -193,8 +193,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
 <div class="legend">
   <span style="font-size:.68rem;color:#4a5568;margin-right:2px">Estado:</span>
   <div class="legend-item"><span class="legend-dot" style="background:#68d391"></span>OK (&lt;50%)</div>
-  <div class="legend-item"><span class="legend-dot" style="background:#f6ad55"></span>Aviso (50–85%)</div>
-  <div class="legend-item"><span class="legend-dot" style="background:#fc8181"></span>Cerca (85–100%)</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#f6ad55"></span>Aviso (50-85%)</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#fc8181"></span>Cerca (85-100%)</div>
   <div class="legend-item"><span class="legend-dot" style="background:#fc5a5a"></span>Excede (&gt;100%)</div>
   <div class="legend-item"><span class="legend-dot" style="background:#4a5568"></span>Sin PPTO</div>
   <div class="legend-item" style="margin-left:8px"><span style="width:12px;height:6px;background:#4299e1;border-radius:2px;display:inline-block"></span>Confirmado</div>
@@ -208,9 +208,9 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
     <div class="dp-totals" id="dp-totals"></div>
   </div>
   <div class="th-labels">
-    <span>Categoría</span><span>Progreso</span>
+    <span>Categoria</span><span>Progreso</span>
     <span>Confirmado</span><span>Posible</span>
-    <span>PPTO Jun</span><span>Disponible</span>
+    <span id="ppto-col-label">PPTO Jun</span><span>Disponible</span>
     <span>% Ejec</span><span></span>
   </div>
   <div id="cat-rows"></div>
@@ -219,10 +219,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
 <!-- SIN CLASIFICAR -->
 <div class="sc-panel" id="sc-panel" style="display:none">
   <div class="sc-header" onclick="toggleSC()">
-    <div class="sc-title">⚠ Facturas no encontradas</div>
+    <div class="sc-title">Facturas no encontradas</div>
     <span class="sc-badge" id="sc-count">0 facturas</span>
     <span style="font-size:.8rem;font-weight:700;color:#f6ad55;margin-right:8px" id="sc-total"></span>
-    <div class="chevron" id="sc-chev">▼</div>
+    <div class="chevron" id="sc-chev">&#9660;</div>
   </div>
   <div id="sc-body" style="display:none;background:#13151f;border-top:1px solid #744210;padding:0 0 12px 0"></div>
 </div>
@@ -230,30 +230,97 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f1117;color:#e2e8f
 </div>
 
 <script>
-const DATA = {"Los Leones": {"color": "#4299e1", "total_conf": 4803972, "total_pos": 2261509, "total_ppto": 6214361, "pct_total": 77.3, "cats": [{"cat": "Seguridad", "confirmado": 144229, "posible": 0, "ppto": 72000, "disponible": -72229, "pct": 200.3, "facturas_conf": [{"razon": "VERISURE CHILE SPA", "monto": 44691, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}, {"razon": "VERISURE CHILE SPA", "monto": 44691, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}, {"razon": "VERISURE CHILE SPA", "monto": 54847, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 1164807, "posible": 135000, "ppto": 1390000, "disponible": 225193, "pct": 83.8, "facturas_conf": [{"razon": "EASY RETAIL S.A.", "monto": 21000, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "MercadoLibre Chile LTDA", "monto": 14277, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "HERRAMIENTAS"}, {"razon": "INMOBILIARIA E INVERSIONES YORY SPA", "monto": 17479, "fecha": "02/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "CENCOSUD RETAIL S.A.", "monto": 3618, "fecha": "02/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 25000, "fecha": "02/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "INMOBILIARIA E INVERSIONES YORY SPA", "monto": 9916, "fecha": "03/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "LUIS ALBERTO HERRERA Y COMPANIA SPA", "monto": 246854, "fecha": "04/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "EASY RETAIL S.A.", "monto": 18479, "fecha": "05/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "INVERSIONES MIGUEL OLIVARES SPA", "monto": 6688, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "INVERSIONES JAKE SPA", "monto": 33524, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "ACTIVO FIJO"}, {"razon": "ZG STORE LIMITADA", "monto": 8408, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "KUANGYE TECHNOLOGY COMPANY SPA", "monto": 11664, "fecha": "11/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "GPS LINE SPA", "monto": 7042, "fecha": "11/06/2026", "tipo_doc": 33, "tipo_prod": "REPUESTOS"}, {"razon": "CERRAJERIA MASTERLLAVES SPA", "monto": 45000, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "STEWARD", "monto": 252746, "fecha": "15/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "SAM LIFE SPA", "monto": 14060, "fecha": "15/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "TRULY NOLEN CHILE S.A.", "monto": 216347, "fecha": "16/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "INVERSIONES JAKE SPA", "monto": 33524, "fecha": "18/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "CENCOSUD RETAIL S.A.", "monto": 2655, "fecha": "23/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "EASY RETAIL S.A.", "monto": 19891, "fecha": "24/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "SERVICIOS Y PARTES AF SPA", "monto": 75000, "fecha": "25/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "COMERCIAL MAUCO SPA.", "monto": 81635, "fecha": "29/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}], "facturas_pos": [{"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 135000, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Movilización", "confirmado": 771891, "posible": 0, "ppto": 0, "disponible": -771891, "pct": null, "facturas_conf": [{"razon": "GASTON POZO GONZALEZ", "monto": 25210, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}, {"razon": "SUPER DUPER SPA", "monto": 545000, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}, {"razon": "EST SERV GALVEZ Y REYES LTDA", "monto": 67227, "fecha": "04/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}, {"razon": "SOC COMERCIAL JERIA Y CIA LTDA", "monto": 67227, "fecha": "11/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}, {"razon": "EST SERV GALVEZ Y REYES LTDA", "monto": 67227, "fecha": "26/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 771219, "posible": 0, "ppto": 1289166, "disponible": 517947, "pct": 59.8, "facturas_conf": [{"razon": "HUGO DELFIN ELGUETA VELASQUEZ", "monto": 14000, "fecha": "02/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "EDISON EDGAR CARDENAS FERNANDEZ", "monto": 80000, "fecha": "05/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "COMERCIAL ALTURA SUR S A", "monto": 19319, "fecha": "08/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": 320000, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "DORA EDITH MORNHINWEG FELBER", "monto": 45000, "fecha": "11/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "DORA EDITH MORNHINWEG FELBER", "monto": 45000, "fecha": "15/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": 160000, "fecha": "17/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": 180000, "fecha": "17/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": 160000, "fecha": "17/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": -320000, "fecha": "17/06/2026", "tipo_doc": 61, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": -320000, "fecha": "17/06/2026", "tipo_doc": 61, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": -180000, "fecha": "17/06/2026", "tipo_doc": 61, "tipo_prod": "MARKETING"}, {"razon": "ESTUDIO100 PRODUCCIONES AUDIOVISUALES LIMITADA", "monto": 495000, "fecha": "23/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "HUGO DELFIN ELGUETA VELASQUEZ", "monto": 72900, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 868985, "posible": 2126509, "ppto": 1213195, "disponible": 344210, "pct": 71.6, "facturas_conf": [{"razon": "CENCOSUD RETAIL S.A.", "monto": 55697, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "BENEFICIO A LOS EMPLEADOS"}, {"razon": "CERVECERÃ_x008d_A YAKIMA SPA", "monto": 607013, "fecha": "05/06/2026", "tipo_doc": 33, "tipo_prod": "BENEFICIO A LOS EMPLEADOS"}, {"razon": "MERCHI PROMOCIONALES SPA", "monto": 206275, "fecha": "19/06/2026", "tipo_doc": 33, "tipo_prod": "BENEFICIO A LOS EMPLEADOS"}], "facturas_pos": [{"razon": "EDENRED CHILE S.A.", "monto": 2126509, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Sistemas", "confirmado": 1082841, "posible": 0, "ppto": 1790000, "disponible": 707159, "pct": 60.5, "facturas_conf": [{"razon": "DEFONTANA CHILE SPA", "monto": 757565, "fecha": "08/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}, {"razon": "TOTEAT S.A", "monto": 239000, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}, {"razon": "TOTEAT S.A", "monto": 45648, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}, {"razon": "TOTEAT S.A", "monto": 40628, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 460000, "disponible": 460000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Italia": {"color": "#68d391", "total_conf": 714457, "total_pos": 0, "total_ppto": 2500000, "pct_total": 28.6, "cats": [{"cat": "Seguridad", "confirmado": 41846, "posible": 0, "ppto": 150000, "disponible": 108154, "pct": 27.9, "facturas_conf": [{"razon": "VERISURE CHILE SPA", "monto": 41846, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 399337, "posible": 0, "ppto": 300000, "disponible": -99337, "pct": 133.1, "facturas_conf": [{"razon": "EASY RETAIL S.A.", "monto": 50908, "fecha": "02/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "DISTRIBUIDORA ATLANTA SPA", "monto": 7891, "fecha": "03/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "INMOBILIARIA E INVERSIONES YORY SPA", "monto": 5042, "fecha": "03/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "ARTICULOS DE HOGAR S.O.S.COCINA LIMITADA", "monto": 14286, "fecha": "08/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "COMERCIAL MAUCO SPA.", "monto": 43191, "fecha": "08/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "DISTRIBUIDORA ATLANTA SPA", "monto": 23597, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "J RAVERA Y COMPAÃ‘IA LTDA.", "monto": 8387, "fecha": "11/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "TRULY NOLEN CHILE S.A.", "monto": 187773, "fecha": "16/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "JOSE RIVERO LLAMAZALES Y CIA. LTDA.", "monto": 33262, "fecha": "16/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 25000, "fecha": "24/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}], "facturas_pos": []}, {"cat": "Movilización", "confirmado": 0, "posible": 0, "ppto": 100000, "disponible": 100000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 72900, "posible": 0, "ppto": 1000000, "disponible": 927100, "pct": 7.3, "facturas_conf": [{"razon": "HUGO DELFIN ELGUETA VELASQUEZ", "monto": 72900, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 0, "ppto": 100000, "disponible": 100000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Sistemas", "confirmado": 200374, "posible": 0, "ppto": 350000, "disponible": 149626, "pct": 57.2, "facturas_conf": [{"razon": "TOTEAT S.A", "monto": 200374, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 500000, "disponible": 500000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Lastarria": {"color": "#f6ad55", "total_conf": 1720284, "total_pos": 915315, "total_ppto": 3581865, "pct_total": 48.0, "cats": [{"cat": "Seguridad", "confirmado": 54034, "posible": 0, "ppto": 36000, "disponible": -18034, "pct": 150.1, "facturas_conf": [{"razon": "VERISURE CHILE SPA", "monto": 54034, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 1061602, "posible": 20580, "ppto": 1210000, "disponible": 148398, "pct": 87.7, "facturas_conf": [{"razon": "CENCOSUD RETAIL S.A.", "monto": 11748, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "XIMENA DEL CARMEN JARA JARA", "monto": 4782, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "INVERSIONES MIGUEL OLIVARES SPA", "monto": 5034, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "SERVICIOS Y PARTES AF SPA", "monto": 150000, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "TRULY NOLEN CHILE S.A.", "monto": 195937, "fecha": "16/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "CENCOSUD RETAIL S.A.", "monto": 25193, "fecha": "18/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "COMERCIAL MAUCO SPA.", "monto": 43235, "fecha": "18/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "EASY RETAIL S.A.", "monto": 50370, "fecha": "19/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 47000, "fecha": "19/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "DYC EXPERTOS EN DUCTOS SPA", "monto": 330000, "fecha": "19/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "ELECTRONICA RETAIL LIMITADA", "monto": 18479, "fecha": "23/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "SERVICIOS Y PARTES AF SPA", "monto": 149580, "fecha": "25/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "IMPORTADORA Y EXPORTADORA PROTEX LIMITADA", "monto": 30244, "fecha": "26/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}], "facturas_pos": [{"razon": "JOSE RIVERO LLAMAZALES Y CIA. LTDA.", "monto": 20580, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Movilización", "confirmado": 0, "posible": 0, "ppto": 182500, "disponible": 182500, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 320000, "posible": 0, "ppto": 621788, "disponible": 301788, "pct": 51.5, "facturas_conf": [{"razon": "AYHUNGRY SPA", "monto": 320000, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 894735, "ppto": 886577, "disponible": 886577, "pct": 0.0, "facturas_conf": [], "facturas_pos": [{"razon": "EDENRED CHILE S.A.", "monto": 894735, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Sistemas", "confirmado": 284648, "posible": 0, "ppto": 300000, "disponible": 15352, "pct": 94.9, "facturas_conf": [{"razon": "TOTEAT S.A", "monto": 239000, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}, {"razon": "TOTEAT S.A", "monto": 45648, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 345000, "disponible": 345000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Vitacura": {"color": "#b794f4", "total_conf": 1895254, "total_pos": 1637647, "total_ppto": 3668642, "pct_total": 51.7, "cats": [{"cat": "Seguridad", "confirmado": 0, "posible": 0, "ppto": 0, "disponible": 0, "pct": null, "facturas_conf": [], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 675914, "posible": 0, "ppto": 1210000, "disponible": 534086, "pct": 55.9, "facturas_conf": [{"razon": "LIGHT SOLUTION GROUP LIMITADA", "monto": 63866, "fecha": "03/06/2026", "tipo_doc": 33, "tipo_prod": "CAPEX"}, {"razon": "RENDIC HERMANOS S.A.", "monto": 6294, "fecha": "04/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "COMERCIAL MAUCO SPA.", "monto": 98328, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "SERVICIOS Y PARTES AF SPA", "monto": 150000, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "RUBEN BUSTAMANTE FERRER", "monto": 165426, "fecha": "18/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 47000, "fecha": "24/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 145000, "fecha": "24/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}], "facturas_pos": []}, {"cat": "Movilización", "confirmado": 0, "posible": 0, "ppto": 182500, "disponible": 182500, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 934692, "posible": 0, "ppto": 830914, "disponible": -103778, "pct": 112.5, "facturas_conf": [{"razon": "AYHUNGRY SPA", "monto": 320000, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "CHOCOLATE MARACUYA SPA", "monto": 414692, "fecha": "11/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "PUNCHLINE PRODUCCIONES SPA", "monto": 200000, "fecha": "19/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 1637647, "ppto": 1050228, "disponible": 1050228, "pct": 0.0, "facturas_conf": [], "facturas_pos": [{"razon": "EDENRED CHILE S.A.", "monto": 1637647, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Sistemas", "confirmado": 284648, "posible": 0, "ppto": 300000, "disponible": 15352, "pct": 94.9, "facturas_conf": [{"razon": "TOTEAT S.A", "monto": 45648, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}, {"razon": "TOTEAT S.A", "monto": 239000, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 95000, "disponible": 95000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Yakima": {"color": "#f687b3", "total_conf": 1360779, "total_pos": 527931, "total_ppto": 1896022, "pct_total": 71.8, "cats": [{"cat": "Seguridad", "confirmado": 44691, "posible": 0, "ppto": 150000, "disponible": 105309, "pct": 29.8, "facturas_conf": [{"razon": "VERISURE CHILE SPA", "monto": 44691, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 674269, "posible": 117200, "ppto": 0, "disponible": -674269, "pct": null, "facturas_conf": [{"razon": "COMERCIALIZADORA ENRIQUE AVALOS SPA", "monto": 54201, "fecha": "29/05/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 84600, "fecha": "02/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "DE TOMAS E HIJOS LIMITADA", "monto": 22622, "fecha": "04/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "LUIS ALBERTO HERRERA Y COMPANIA SPA", "monto": 170565, "fecha": "04/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "HIDROMECANICA BAEZA LIMITADA", "monto": 179000, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "TRULY NOLEN CHILE S.A.", "monto": 163281, "fecha": "19/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}], "facturas_pos": [{"razon": "SEVECO LIMITADA", "monto": 117200, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Movilización", "confirmado": 383968, "posible": 0, "ppto": 0, "disponible": -383968, "pct": null, "facturas_conf": [{"razon": "INVERSIONES PATAGONIA S.A.", "monto": 43514, "fecha": "06/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}, {"razon": "INVERSIONES PATAGONIA S.A.", "monto": 45690, "fecha": "13/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}, {"razon": "COMERCIALIZADORA VARGAS LOZA LIMITADA", "monto": 243600, "fecha": "16/06/2026", "tipo_doc": 33, "tipo_prod": "MOVILIZACION"}, {"razon": "INVERSIONES PATAGONIA S.A.", "monto": 51164, "fecha": "22/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 257851, "posible": 0, "ppto": 796022, "disponible": 538171, "pct": 32.4, "facturas_conf": [{"razon": "LA QUINTA SPA", "monto": 257851, "fecha": "04/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 356530, "ppto": 500000, "disponible": 500000, "pct": 0.0, "facturas_conf": [], "facturas_pos": [{"razon": "EDENRED CHILE S.A.", "monto": 356530, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Sistemas", "confirmado": 0, "posible": 0, "ppto": 300000, "disponible": 300000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 54201, "ppto": 150000, "disponible": 150000, "pct": 0.0, "facturas_conf": [], "facturas_pos": [{"razon": "COMERCIALIZADORA ENRIQUE AVALOS SPA", "monto": 54201, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}]}, "Beervana": {"color": "#76e4f7", "total_conf": 112417, "total_pos": 0, "total_ppto": 280000, "pct_total": 40.1, "cats": [{"cat": "Seguridad", "confirmado": 0, "posible": 0, "ppto": 30000, "disponible": 30000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 0, "posible": 0, "ppto": 0, "disponible": 0, "pct": null, "facturas_conf": [], "facturas_pos": []}, {"cat": "Movilización", "confirmado": 112417, "posible": 0, "ppto": 0, "disponible": -112417, "pct": null, "facturas_conf": [{"razon": "Autopista Vespucio Norte", "monto": 8076, "fecha": "03/06/2026", "tipo_doc": 33, "tipo_prod": "PEAJES"}, {"razon": "Soc. Conc. Autopista Nueva Vespucio Sur S.A.", "monto": 32278, "fecha": "05/06/2026", "tipo_doc": 34, "tipo_prod": "PEAJES"}, {"razon": "RUTA DEL MAIPO SOCIEDAD CONCESIONARIA, S.A.", "monto": 16919, "fecha": "06/06/2026", "tipo_doc": 34, "tipo_prod": "PEAJES"}, {"razon": "Operadora de Sistemas ElectrÃ³nicos SPA", "monto": 5687, "fecha": "08/06/2026", "tipo_doc": 34, "tipo_prod": "PEAJES"}, {"razon": "Sociedad Concesionaria Costanera Norte S.A.", "monto": 49457, "fecha": "26/06/2026", "tipo_doc": 34, "tipo_prod": "PEAJES"}], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 0, "posible": 0, "ppto": 0, "disponible": 0, "pct": null, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 0, "ppto": 0, "disponible": 0, "pct": null, "facturas_conf": [], "facturas_pos": []}, {"cat": "Sistemas", "confirmado": 0, "posible": 0, "ppto": 200000, "disponible": 200000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 50000, "disponible": 50000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}};
-const GRUPOS = {"El Honesto Mike": ["Los Leones", "Italia", "Lastarria", "Vitacura"], "Grupo Cervecero": ["Yakima", "Beervana"]};
-const SIN_CLASIFICAR = [{"empresa": "Los Leones", "razon": "FALABELLA.COM SPA", "tipo_prod": "—", "monto": 37176, "fecha": "30/06/2026", "tipo_doc": 33, "estado": "PENDIENTE"}, {"empresa": "Lastarria", "razon": "CERVECERÃ_x008d_A YAKIMA SPA", "tipo_prod": "—", "monto": 913176, "fecha": "30/06/2026", "tipo_doc": 33, "estado": "PENDIENTE"}, {"empresa": "Vitacura", "razon": "CERVECERÃ_x008d_A YAKIMA SPA", "tipo_prod": "—", "monto": 822509, "fecha": "30/06/2026", "tipo_doc": 33, "estado": "PENDIENTE"}, {"empresa": "Yakima", "razon": "LA ROSENDA SPA", "tipo_prod": "—", "monto": 37150, "fecha": "27/06/2026", "tipo_doc": 33, "estado": "PENDIENTE"}];
-const EMPRESAS = ['Los Leones','Italia','Lastarria','Vitacura'];
-// grand values now computed dynamically in renderStrip()
+const DATA_JUNIO = {"Los Leones": {"color": "#4299e1", "total_conf": 4803972, "total_pos": 2261509, "total_ppto": 6214361, "pct_total": 77.3, "cats": [{"cat": "Seguridad", "confirmado": 144229, "posible": 0, "ppto": 72000, "disponible": -72229, "pct": 200.3, "facturas_conf": [{"razon": "VERISURE CHILE SPA", "monto": 44691, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}, {"razon": "VERISURE CHILE SPA", "monto": 44691, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}, {"razon": "VERISURE CHILE SPA", "monto": 54847, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 1164807, "posible": 135000, "ppto": 1390000, "disponible": 225193, "pct": 83.8, "facturas_conf": [{"razon": "EASY RETAIL S.A.", "monto": 21000, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "MercadoLibre Chile LTDA", "monto": 14277, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "HERRAMIENTAS"}, {"razon": "INMOBILIARIA E INVERSIONES YORY SPA", "monto": 17479, "fecha": "02/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "CENCOSUD RETAIL S.A.", "monto": 3618, "fecha": "02/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 25000, "fecha": "02/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "INMOBILIARIA E INVERSIONES YORY SPA", "monto": 9916, "fecha": "03/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "LUIS ALBERTO HERRERA Y COMPANIA SPA", "monto": 246854, "fecha": "04/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "EASY RETAIL S.A.", "monto": 18479, "fecha": "05/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "INVERSIONES MIGUEL OLIVARES SPA", "monto": 6688, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "INVERSIONES JAKE SPA", "monto": 33524, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "ACTIVO FIJO"}, {"razon": "ZG STORE LIMITADA", "monto": 8408, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "KUANGYE TECHNOLOGY COMPANY SPA", "monto": 11664, "fecha": "11/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "GPS LINE SPA", "monto": 7042, "fecha": "11/06/2026", "tipo_doc": 33, "tipo_prod": "REPUESTOS"}, {"razon": "CERRAJERIA MASTERLLAVES SPA", "monto": 45000, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "STEWARD", "monto": 252746, "fecha": "15/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "SAM LIFE SPA", "monto": 14060, "fecha": "15/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "TRULY NOLEN CHILE S.A.", "monto": 216347, "fecha": "16/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "INVERSIONES JAKE SPA", "monto": 33524, "fecha": "18/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "CENCOSUD RETAIL S.A.", "monto": 2655, "fecha": "23/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "EASY RETAIL S.A.", "monto": 19891, "fecha": "24/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "SERVICIOS Y PARTES AF SPA", "monto": 75000, "fecha": "25/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "COMERCIAL MAUCO SPA.", "monto": 81635, "fecha": "29/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}], "facturas_pos": [{"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 135000, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Movilización", "confirmado": 771891, "posible": 0, "ppto": 0, "disponible": -771891, "pct": null, "facturas_conf": [{"razon": "GASTON POZO GONZALEZ", "monto": 25210, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}, {"razon": "SUPER DUPER SPA", "monto": 545000, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}, {"razon": "EST SERV GALVEZ Y REYES LTDA", "monto": 67227, "fecha": "04/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}, {"razon": "SOC COMERCIAL JERIA Y CIA LTDA", "monto": 67227, "fecha": "11/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}, {"razon": "EST SERV GALVEZ Y REYES LTDA", "monto": 67227, "fecha": "26/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 771219, "posible": 0, "ppto": 1289166, "disponible": 517947, "pct": 59.8, "facturas_conf": [{"razon": "HUGO DELFIN ELGUETA VELASQUEZ", "monto": 14000, "fecha": "02/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "EDISON EDGAR CARDENAS FERNANDEZ", "monto": 80000, "fecha": "05/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "COMERCIAL ALTURA SUR S A", "monto": 19319, "fecha": "08/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": 320000, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "DORA EDITH MORNHINWEG FELBER", "monto": 45000, "fecha": "11/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "DORA EDITH MORNHINWEG FELBER", "monto": 45000, "fecha": "15/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": 160000, "fecha": "17/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": 180000, "fecha": "17/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": 160000, "fecha": "17/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": -320000, "fecha": "17/06/2026", "tipo_doc": 61, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": -320000, "fecha": "17/06/2026", "tipo_doc": 61, "tipo_prod": "MARKETING"}, {"razon": "AYHUNGRY SPA", "monto": -180000, "fecha": "17/06/2026", "tipo_doc": 61, "tipo_prod": "MARKETING"}, {"razon": "ESTUDIO100 PRODUCCIONES AUDIOVISUALES LIMITADA", "monto": 495000, "fecha": "23/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "HUGO DELFIN ELGUETA VELASQUEZ", "monto": 72900, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 868985, "posible": 2126509, "ppto": 1213195, "disponible": 344210, "pct": 71.6, "facturas_conf": [{"razon": "CENCOSUD RETAIL S.A.", "monto": 55697, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "BENEFICIO A LOS EMPLEADOS"}, {"razon": "CERVECERÃ_x008d_A YAKIMA SPA", "monto": 607013, "fecha": "05/06/2026", "tipo_doc": 33, "tipo_prod": "BENEFICIO A LOS EMPLEADOS"}, {"razon": "MERCHI PROMOCIONALES SPA", "monto": 206275, "fecha": "19/06/2026", "tipo_doc": 33, "tipo_prod": "BENEFICIO A LOS EMPLEADOS"}], "facturas_pos": [{"razon": "EDENRED CHILE S.A.", "monto": 2126509, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Sistemas", "confirmado": 1082841, "posible": 0, "ppto": 1790000, "disponible": 707159, "pct": 60.5, "facturas_conf": [{"razon": "DEFONTANA CHILE SPA", "monto": 757565, "fecha": "08/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}, {"razon": "TOTEAT S.A", "monto": 239000, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}, {"razon": "TOTEAT S.A", "monto": 45648, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}, {"razon": "TOTEAT S.A", "monto": 40628, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 460000, "disponible": 460000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Italia": {"color": "#68d391", "total_conf": 714457, "total_pos": 0, "total_ppto": 2500000, "pct_total": 28.6, "cats": [{"cat": "Seguridad", "confirmado": 41846, "posible": 0, "ppto": 150000, "disponible": 108154, "pct": 27.9, "facturas_conf": [{"razon": "VERISURE CHILE SPA", "monto": 41846, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 399337, "posible": 0, "ppto": 300000, "disponible": -99337, "pct": 133.1, "facturas_conf": [{"razon": "EASY RETAIL S.A.", "monto": 50908, "fecha": "02/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "DISTRIBUIDORA ATLANTA SPA", "monto": 7891, "fecha": "03/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "INMOBILIARIA E INVERSIONES YORY SPA", "monto": 5042, "fecha": "03/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "ARTICULOS DE HOGAR S.O.S.COCINA LIMITADA", "monto": 14286, "fecha": "08/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "COMERCIAL MAUCO SPA.", "monto": 43191, "fecha": "08/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "DISTRIBUIDORA ATLANTA SPA", "monto": 23597, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "J RAVERA Y COMPAÃ‘IA LTDA.", "monto": 8387, "fecha": "11/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "TRULY NOLEN CHILE S.A.", "monto": 187773, "fecha": "16/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "JOSE RIVERO LLAMAZALES Y CIA. LTDA.", "monto": 33262, "fecha": "16/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 25000, "fecha": "24/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}], "facturas_pos": []}, {"cat": "Movilización", "confirmado": 0, "posible": 0, "ppto": 100000, "disponible": 100000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 72900, "posible": 0, "ppto": 1000000, "disponible": 927100, "pct": 7.3, "facturas_conf": [{"razon": "HUGO DELFIN ELGUETA VELASQUEZ", "monto": 72900, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 0, "ppto": 100000, "disponible": 100000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Sistemas", "confirmado": 200374, "posible": 0, "ppto": 350000, "disponible": 149626, "pct": 57.2, "facturas_conf": [{"razon": "TOTEAT S.A", "monto": 200374, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 500000, "disponible": 500000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Lastarria": {"color": "#f6ad55", "total_conf": 1720284, "total_pos": 915315, "total_ppto": 3581865, "pct_total": 48.0, "cats": [{"cat": "Seguridad", "confirmado": 54034, "posible": 0, "ppto": 36000, "disponible": -18034, "pct": 150.1, "facturas_conf": [{"razon": "VERISURE CHILE SPA", "monto": 54034, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 1061602, "posible": 20580, "ppto": 1210000, "disponible": 148398, "pct": 87.7, "facturas_conf": [{"razon": "CENCOSUD RETAIL S.A.", "monto": 11748, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "XIMENA DEL CARMEN JARA JARA", "monto": 4782, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "INVERSIONES MIGUEL OLIVARES SPA", "monto": 5034, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "SERVICIOS Y PARTES AF SPA", "monto": 150000, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "TRULY NOLEN CHILE S.A.", "monto": 195937, "fecha": "16/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "CENCOSUD RETAIL S.A.", "monto": 25193, "fecha": "18/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "COMERCIAL MAUCO SPA.", "monto": 43235, "fecha": "18/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "EASY RETAIL S.A.", "monto": 50370, "fecha": "19/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 47000, "fecha": "19/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "DYC EXPERTOS EN DUCTOS SPA", "monto": 330000, "fecha": "19/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "ELECTRONICA RETAIL LIMITADA", "monto": 18479, "fecha": "23/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "SERVICIOS Y PARTES AF SPA", "monto": 149580, "fecha": "25/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "IMPORTADORA Y EXPORTADORA PROTEX LIMITADA", "monto": 30244, "fecha": "26/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}], "facturas_pos": [{"razon": "JOSE RIVERO LLAMAZALES Y CIA. LTDA.", "monto": 20580, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Movilización", "confirmado": 0, "posible": 0, "ppto": 182500, "disponible": 182500, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 320000, "posible": 0, "ppto": 621788, "disponible": 301788, "pct": 51.5, "facturas_conf": [{"razon": "AYHUNGRY SPA", "monto": 320000, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 894735, "ppto": 886577, "disponible": 886577, "pct": 0.0, "facturas_conf": [], "facturas_pos": [{"razon": "EDENRED CHILE S.A.", "monto": 894735, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Sistemas", "confirmado": 284648, "posible": 0, "ppto": 300000, "disponible": 15352, "pct": 94.9, "facturas_conf": [{"razon": "TOTEAT S.A", "monto": 239000, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}, {"razon": "TOTEAT S.A", "monto": 45648, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 345000, "disponible": 345000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Vitacura": {"color": "#b794f4", "total_conf": 1895254, "total_pos": 1637647, "total_ppto": 3668642, "pct_total": 51.7, "cats": [{"cat": "Seguridad", "confirmado": 0, "posible": 0, "ppto": 0, "disponible": 0, "pct": null, "facturas_conf": [], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 675914, "posible": 0, "ppto": 1210000, "disponible": 534086, "pct": 55.9, "facturas_conf": [{"razon": "LIGHT SOLUTION GROUP LIMITADA", "monto": 63866, "fecha": "03/06/2026", "tipo_doc": 33, "tipo_prod": "CAPEX"}, {"razon": "RENDIC HERMANOS S.A.", "monto": 6294, "fecha": "04/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "COMERCIAL MAUCO SPA.", "monto": 98328, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "SERVICIOS Y PARTES AF SPA", "monto": 150000, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "RUBEN BUSTAMANTE FERRER", "monto": 165426, "fecha": "18/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 47000, "fecha": "24/06/2026", "tipo_doc": 33, "tipo_prod": "REPARACION"}, {"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 145000, "fecha": "24/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}], "facturas_pos": []}, {"cat": "Movilización", "confirmado": 0, "posible": 0, "ppto": 182500, "disponible": 182500, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 934692, "posible": 0, "ppto": 830914, "disponible": -103778, "pct": 112.5, "facturas_conf": [{"razon": "AYHUNGRY SPA", "monto": 320000, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "CHOCOLATE MARACUYA SPA", "monto": 414692, "fecha": "11/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}, {"razon": "PUNCHLINE PRODUCCIONES SPA", "monto": 200000, "fecha": "19/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 1637647, "ppto": 1050228, "disponible": 1050228, "pct": 0.0, "facturas_conf": [], "facturas_pos": [{"razon": "EDENRED CHILE S.A.", "monto": 1637647, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Sistemas", "confirmado": 284648, "posible": 0, "ppto": 300000, "disponible": 15352, "pct": 94.9, "facturas_conf": [{"razon": "TOTEAT S.A", "monto": 45648, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}, {"razon": "TOTEAT S.A", "monto": 239000, "fecha": "09/06/2026", "tipo_doc": 33, "tipo_prod": "SOFTWARE"}], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 95000, "disponible": 95000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Yakima": {"color": "#f687b3", "total_conf": 1360779, "total_pos": 527931, "total_ppto": 2846022, "pct_total": 47.8, "cats": [{"cat": "Seguridad", "confirmado": 44691, "posible": 0, "ppto": 150000, "disponible": 105309, "pct": 29.8, "facturas_conf": [{"razon": "VERISURE CHILE SPA", "monto": 44691, "fecha": "01/06/2026", "tipo_doc": 33, "tipo_prod": "OTROS"}], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 674269, "posible": 117200, "ppto": 600000, "disponible": -74269, "pct": 112.4, "facturas_conf": [{"razon": "COMERCIALIZADORA ENRIQUE AVALOS SPA", "monto": 54201, "fecha": "29/05/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "CONTROLBAR SOLUTIONS SPA", "monto": 84600, "fecha": "02/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "DE TOMAS E HIJOS LIMITADA", "monto": 22622, "fecha": "04/06/2026", "tipo_doc": 33, "tipo_prod": "MEJORAS INSTALACIONES"}, {"razon": "LUIS ALBERTO HERRERA Y COMPANIA SPA", "monto": 170565, "fecha": "04/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "HIDROMECANICA BAEZA LIMITADA", "monto": 179000, "fecha": "12/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}, {"razon": "TRULY NOLEN CHILE S.A.", "monto": 163281, "fecha": "19/06/2026", "tipo_doc": 33, "tipo_prod": "MANTENCION"}], "facturas_pos": [{"razon": "SEVECO LIMITADA", "monto": 117200, "fecha": "10/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Movilización", "confirmado": 383968, "posible": 0, "ppto": 350000, "disponible": -33968, "pct": 109.7, "facturas_conf": [{"razon": "INVERSIONES PATAGONIA S.A.", "monto": 43514, "fecha": "06/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}, {"razon": "INVERSIONES PATAGONIA S.A.", "monto": 45690, "fecha": "13/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}, {"razon": "COMERCIALIZADORA VARGAS LOZA LIMITADA", "monto": 243600, "fecha": "16/06/2026", "tipo_doc": 33, "tipo_prod": "MOVILIZACION"}, {"razon": "INVERSIONES PATAGONIA S.A.", "monto": 51164, "fecha": "22/06/2026", "tipo_doc": 33, "tipo_prod": "COMBUSTIBLE"}], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 257851, "posible": 0, "ppto": 796022, "disponible": 538171, "pct": 32.4, "facturas_conf": [{"razon": "LA QUINTA SPA", "monto": 257851, "fecha": "04/06/2026", "tipo_doc": 33, "tipo_prod": "MARKETING"}], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 356530, "ppto": 500000, "disponible": 500000, "pct": 0.0, "facturas_conf": [], "facturas_pos": [{"razon": "EDENRED CHILE S.A.", "monto": 356530, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}, {"cat": "Sistemas", "confirmado": 0, "posible": 0, "ppto": 300000, "disponible": 300000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 54201, "ppto": 150000, "disponible": 150000, "pct": 0.0, "facturas_conf": [], "facturas_pos": [{"razon": "COMERCIALIZADORA ENRIQUE AVALOS SPA", "monto": 54201, "fecha": "30/06/2026", "tipo_doc": 33, "tipo_prod": "—"}]}]}, "Beervana": {"color": "#76e4f7", "total_conf": 112417, "total_pos": 0, "total_ppto": 296667, "pct_total": 37.9, "cats": [{"cat": "Seguridad", "confirmado": 0, "posible": 0, "ppto": 30000, "disponible": 30000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 0, "posible": 0, "ppto": 16667, "disponible": 16667, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Movilización", "confirmado": 112417, "posible": 0, "ppto": 0, "disponible": -112417, "pct": null, "facturas_conf": [{"razon": "Autopista Vespucio Norte", "monto": 8076, "fecha": "03/06/2026", "tipo_doc": 33, "tipo_prod": "PEAJES"}, {"razon": "Soc. Conc. Autopista Nueva Vespucio Sur S.A.", "monto": 32278, "fecha": "05/06/2026", "tipo_doc": 34, "tipo_prod": "PEAJES"}, {"razon": "RUTA DEL MAIPO SOCIEDAD CONCESIONARIA, S.A.", "monto": 16919, "fecha": "06/06/2026", "tipo_doc": 34, "tipo_prod": "PEAJES"}, {"razon": "Operadora de Sistemas ElectrÃ³nicos SPA", "monto": 5687, "fecha": "08/06/2026", "tipo_doc": 34, "tipo_prod": "PEAJES"}, {"razon": "Sociedad Concesionaria Costanera Norte S.A.", "monto": 49457, "fecha": "26/06/2026", "tipo_doc": 34, "tipo_prod": "PEAJES"}], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 0, "posible": 0, "ppto": 0, "disponible": 0, "pct": null, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 0, "ppto": 0, "disponible": 0, "pct": null, "facturas_conf": [], "facturas_pos": []}, {"cat": "Sistemas", "confirmado": 0, "posible": 0, "ppto": 200000, "disponible": 200000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 50000, "disponible": 50000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}};
+const DATA_JULIO = {"Los Leones": {"color": "#4299e1", "total_conf": 0, "total_pos": 0, "total_ppto": 9313992, "pct_total": 0.0, "cats": [{"cat": "Seguridad", "confirmado": 0, "posible": 0, "ppto": 72000, "disponible": 72000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 0, "posible": 0, "ppto": 1430000, "disponible": 1430000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Movilización", "confirmado": 0, "posible": 0, "ppto": 0, "disponible": 0, "pct": null, "facturas_conf": [], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 0, "posible": 0, "ppto": 1480868, "disponible": 1480868, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 0, "ppto": 1088088, "disponible": 1088088, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Sistemas", "confirmado": 0, "posible": 0, "ppto": 1790000, "disponible": 1790000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 3453036, "disponible": 3453036, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Italia": {"color": "#68d391", "total_conf": 0, "total_pos": 0, "total_ppto": 2500000, "pct_total": 0.0, "cats": [{"cat": "Seguridad", "confirmado": 0, "posible": 0, "ppto": 150000, "disponible": 150000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 0, "posible": 0, "ppto": 300000, "disponible": 300000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Movilización", "confirmado": 0, "posible": 0, "ppto": 100000, "disponible": 100000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 0, "posible": 0, "ppto": 1000000, "disponible": 1000000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 0, "ppto": 100000, "disponible": 100000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Sistemas", "confirmado": 0, "posible": 0, "ppto": 350000, "disponible": 350000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 500000, "disponible": 500000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Lastarria": {"color": "#f6ad55", "total_conf": 0, "total_pos": 0, "total_ppto": 3680626, "pct_total": 0.0, "cats": [{"cat": "Seguridad", "confirmado": 0, "posible": 0, "ppto": 36000, "disponible": 36000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 0, "posible": 0, "ppto": 1050000, "disponible": 1050000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Movilización", "confirmado": 0, "posible": 0, "ppto": 182500, "disponible": 182500, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 0, "posible": 0, "ppto": 646741, "disponible": 646741, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 0, "ppto": 811719, "disponible": 811719, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Sistemas", "confirmado": 0, "posible": 0, "ppto": 300000, "disponible": 300000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 653666, "disponible": 653666, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Vitacura": {"color": "#b794f4", "total_conf": 0, "total_pos": 0, "total_ppto": 3949656, "pct_total": 0.0, "cats": [{"cat": "Seguridad", "confirmado": 0, "posible": 0, "ppto": 0, "disponible": 0, "pct": null, "facturas_conf": [], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 0, "posible": 0, "ppto": 1050000, "disponible": 1050000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Movilización", "confirmado": 0, "posible": 0, "ppto": 182500, "disponible": 182500, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 0, "posible": 0, "ppto": 864259, "disponible": 864259, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 0, "ppto": 950193, "disponible": 950193, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Sistemas", "confirmado": 0, "posible": 0, "ppto": 300000, "disponible": 300000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 602704, "disponible": 602704, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Yakima": {"color": "#f687b3", "total_conf": 0, "total_pos": 0, "total_ppto": 2977370, "pct_total": 0.0, "cats": [{"cat": "Seguridad", "confirmado": 0, "posible": 0, "ppto": 150000, "disponible": 150000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 0, "posible": 0, "ppto": 600000, "disponible": 600000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Movilización", "confirmado": 0, "posible": 0, "ppto": 350000, "disponible": 350000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 0, "posible": 0, "ppto": 927370, "disponible": 927370, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 0, "ppto": 500000, "disponible": 500000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Sistemas", "confirmado": 0, "posible": 0, "ppto": 300000, "disponible": 300000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 150000, "disponible": 150000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}, "Beervana": {"color": "#76e4f7", "total_conf": 0, "total_pos": 0, "total_ppto": 296667, "pct_total": 0.0, "cats": [{"cat": "Seguridad", "confirmado": 0, "posible": 0, "ppto": 30000, "disponible": 30000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Mantención", "confirmado": 0, "posible": 0, "ppto": 16667, "disponible": 16667, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Movilización", "confirmado": 0, "posible": 0, "ppto": 0, "disponible": 0, "pct": null, "facturas_conf": [], "facturas_pos": []}, {"cat": "Marketing", "confirmado": 0, "posible": 0, "ppto": 0, "disponible": 0, "pct": null, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos RRHH", "confirmado": 0, "posible": 0, "ppto": 0, "disponible": 0, "pct": null, "facturas_conf": [], "facturas_pos": []}, {"cat": "Sistemas", "confirmado": 0, "posible": 0, "ppto": 200000, "disponible": 200000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}, {"cat": "Gastos Generales", "confirmado": 0, "posible": 0, "ppto": 50000, "disponible": 50000, "pct": 0.0, "facturas_conf": [], "facturas_pos": []}]}};
+const SC_JUNIO   = [{"empresa": "Los Leones", "razon": "FALABELLA.COM SPA", "tipo_prod": "—", "monto": 37176, "fecha": "30/06/2026", "tipo_doc": 33, "estado": "PENDIENTE"}, {"empresa": "Lastarria", "razon": "CERVECERÃ_x008d_A YAKIMA SPA", "tipo_prod": "—", "monto": 913176, "fecha": "30/06/2026", "tipo_doc": 33, "estado": "PENDIENTE"}, {"empresa": "Vitacura", "razon": "CERVECERÃ_x008d_A YAKIMA SPA", "tipo_prod": "—", "monto": 822509, "fecha": "30/06/2026", "tipo_doc": 33, "estado": "PENDIENTE"}, {"empresa": "Yakima", "razon": "LA ROSENDA SPA", "tipo_prod": "—", "monto": 37150, "fecha": "27/06/2026", "tipo_doc": 33, "estado": "PENDIENTE"}];
+const SC_JULIO   = [];
+const GRUPOS     = {"El Honesto Mike": ["Los Leones", "Italia", "Lastarria", "Vitacura"], "Grupo Cervecero": ["Yakima", "Beervana"]};
+const GENERADO   = { junio: '01/07/2026', julio: '—' };
 
-let activeEmp = 'Los Leones';
+const MESES_LABELS = { junio: 'PPTO Jun', julio: 'PPTO Jul', acumulado: 'PPTO Total' };
+const MESES_STRIP  = { junio: 'PPTO Junio Total', julio: 'PPTO Julio Total', acumulado: 'PPTO Acumulado' };
+
+let activeMes   = 'junio';
 let activeGrupo = 'all';
-let singleMode = false; // true when user clicks a specific card
+let activeEmp   = 'Los Leones';
+let singleMode  = false;
+
+function getActiveData() {
+  if (activeMes === 'acumulado') return buildAcumulado(DATA_JUNIO, DATA_JULIO);
+  return activeMes === 'junio' ? DATA_JUNIO : DATA_JULIO;
+}
+function getActiveSC() {
+  if (activeMes === 'acumulado') return SC_JUNIO.concat(SC_JULIO);
+  return activeMes === 'junio' ? SC_JUNIO : SC_JULIO;
+}
+
+function buildAcumulado(d1, d2) {
+  const result = {};
+  Object.keys(d1).forEach(emp => {
+    const e1 = d1[emp];
+    const e2 = d2[emp] || {total_conf:0,total_pos:0,total_ppto:0,cats:[]};
+    const cats = CATS_ORDER.map(cat => {
+      const c1 = e1.cats.find(x=>x.cat===cat) || {confirmado:0,posible:0,ppto:0,facturas_conf:[],facturas_pos:[]};
+      const c2 = e2.cats.find(x=>x.cat===cat) || {confirmado:0,posible:0,ppto:0,facturas_conf:[],facturas_pos:[]};
+      const conf = c1.confirmado + c2.confirmado;
+      const pos  = c1.posible + c2.posible;
+      const pp   = c1.ppto + c2.ppto;
+      return {
+        cat, confirmado:conf, posible:pos, ppto:pp,
+        disponible: pp - conf,
+        pct: pp ? Math.round(conf/pp*1000)/10 : null,
+        facturas_conf: c1.facturas_conf.concat(c2.facturas_conf),
+        facturas_pos:  c1.facturas_pos.concat(c2.facturas_pos),
+      };
+    }).filter(c=>c.confirmado||c.posible||c.ppto);
+    const tConf = cats.reduce((a,c)=>a+c.confirmado,0);
+    const tPos  = cats.reduce((a,c)=>a+c.posible,0);
+    const tPpto = cats.reduce((a,c)=>a+c.ppto,0);
+    result[emp] = {
+      color: e1.color,
+      total_conf: tConf, total_pos: tPos, total_ppto: tPpto,
+      pct_total: tPpto ? Math.round(tConf/tPpto*1000)/10 : 0,
+      cats,
+    };
+  });
+  return result;
+}
+
+function setMes(mes, btn) {
+  activeMes = mes;
+  document.querySelectorAll('.filter-group:first-child .fg-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  // Update PPTO column label
+  document.getElementById('ppto-col-label').textContent = MESES_LABELS[mes];
+  document.getElementById('s-ppto-label').textContent   = MESES_STRIP[mes];
+  // Update header actualizacion
+  const el = document.getElementById('hdr-actualizacion');
+  if (mes === 'acumulado') {
+    el.innerHTML = '&#x1F504; Jun: <strong style="color:#90cdf4">' + GENERADO.junio + '</strong> &nbsp;|&nbsp; Jul: <strong style="color:#90cdf4">' + GENERADO.julio + '</strong>';
+  } else {
+    el.innerHTML = '&#x1F504; Ultima actualizacion: <strong style="color:#90cdf4">' + GENERADO[mes] + '</strong>';
+  }
+  const DATA = getActiveData();
+  const emps = getEmpresasVisibles();
+  if (!emps.includes(activeEmp)) activeEmp = emps[0];
+  renderCards();
+  renderStrip();
+  renderDetail();
+  renderSC();
+}
 
 function getEmpresasVisibles() {
-  if (activeGrupo === 'all') return Object.keys(DATA);
-  return GRUPOS[activeGrupo] || Object.keys(DATA);
+  if (activeGrupo === 'all') return Object.keys(getActiveData());
+  return GRUPOS[activeGrupo] || Object.keys(getActiveData());
 }
 
 function setGrupo(grupo, btn) {
   activeGrupo = grupo;
-  singleMode = false;
-  document.querySelectorAll('.fg-btn').forEach(b => b.classList.remove('active'));
+  singleMode  = false;
+  document.querySelectorAll('.filter-group:nth-child(2) .fg-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  const cards = document.getElementById('cards');
-  cards.className = 'cards ' + (grupo === 'all' ? 'show-all' : grupo === 'Grupo Cervecero' ? 'show-gc' : '');
   const emps = getEmpresasVisibles();
-  if (!emps.includes(activeEmp)) { activeEmp = emps[0]; }
+  if (!emps.includes(activeEmp)) activeEmp = emps[0];
   renderCards();
   renderStrip();
   renderDetail();
@@ -267,8 +334,8 @@ function fmt(n){
 function fmtPlain(n){return '$'+Math.abs(Math.round(n)).toLocaleString('es-CL');}
 
 function badgePct(pct, hasSinPpto){
-  if(pct===null) {
-    if(hasSinPpto) return '<span class="badge b-excede">⚠ Sin PPTO</span>';
+  if(pct===null){
+    if(hasSinPpto) return '<span class="badge b-excede">Sin PPTO</span>';
     return '<span class="badge b-na">s/PPTO</span>';
   }
   if(pct<50)   return `<span class="badge b-ok">${pct}%</span>`;
@@ -284,21 +351,24 @@ function barColor(pct){
   return '#fc5a5a';
 }
 
+const CATS_ORDER = ['Seguridad','Mantención','Movilización','Marketing','Gastos RRHH','Sistemas','Gastos Generales'];
+
 // ── CARDS ──
 function renderCards(){
-  const el = document.getElementById('cards');
-  const visibles = getEmpresasVisibles();
-  el.innerHTML = visibles.map(emp => {
+  const DATA = getActiveData();
+  const el   = document.getElementById('cards');
+  const vis  = getEmpresasVisibles();
+  el.style.gridTemplateColumns = vis.length <= 4 ? 'repeat('+vis.length+',1fr)' : 'repeat(4,1fr)';
+  const mesLabel = activeMes === 'acumulado' ? 'Acumulado' : (activeMes === 'junio' ? 'Junio' : 'Julio');
+  el.innerHTML = vis.map(emp => {
     const d = DATA[emp];
     const confW = d.total_ppto ? Math.min(d.total_conf/d.total_ppto*100,100) : 0;
     const posW  = d.total_ppto ? Math.min((d.total_conf+d.total_pos)/d.total_ppto*100,100)-confW : 0;
-    const isActive = emp===activeEmp ? 'active' : '';
-    return `<div class="card ${isActive}" style="--c:${d.color}" onclick="selectEmp('${emp}')">
+    return `<div class="card ${emp===activeEmp?'active':''}" style="--c:${d.color}" onclick="selectEmp('${emp}')">
       <div class="empresa">${emp}</div>
       <div class="real-val">${fmtPlain(d.total_conf)}</div>
-      <div class="sub">confirmado${d.total_pos>0 ? ` <span class="pill pill-pos">+${fmtPlain(d.total_pos)} posible</span>`:''}
-      </div>
-      <div class="ppto-row"><span>PPTO Junio</span><span>${fmtPlain(d.total_ppto)}</span></div>
+      <div class="sub">confirmado${d.total_pos>0?` <span class="pill pill-pos">+${fmtPlain(d.total_pos)} posible</span>`:''}</div>
+      <div class="ppto-row"><span>PPTO ${mesLabel}</span><span>${fmtPlain(d.total_ppto)}</span></div>
       <div class="bar-bg">
         <span class="bar-conf" style="width:${confW}%"></span><span class="bar-pos" style="width:${posW}%"></span>
       </div>
@@ -309,6 +379,7 @@ function renderCards(){
 
 // ── STRIP ──
 function renderStrip(){
+  const DATA = getActiveData();
   const emps = getEmpresasVisibles();
   const gC = emps.reduce((a,e)=>a+DATA[e].total_conf,0);
   const gP = emps.reduce((a,e)=>a+DATA[e].total_pos,0);
@@ -325,12 +396,11 @@ function renderStrip(){
   document.getElementById('bb-pos').style.width  = (confW+posW)+'%';
 }
 
-// ── DETAIL PANEL ──
-const CATS_ORDER = ['Seguridad','Mantención','Movilización','Marketing','Gastos RRHH','Sistemas','Gastos Generales'];
-
+// ── DETAIL ──
 function buildCats(emps) {
+  const DATA = getActiveData();
   return CATS_ORDER.map(cat => {
-    let conf=0, pos=0, ppto=0, fC=[], fP=[];
+    let conf=0,pos=0,ppto=0,fC=[],fP=[];
     emps.forEach(emp => {
       const c = DATA[emp].cats.find(x=>x.cat===cat);
       if(!c) return;
@@ -345,24 +415,24 @@ function buildCats(emps) {
 }
 
 function mkFactTable(rows, cls) {
-  if(!rows.length) return '<div class="empty-msg">Sin facturas en esta categoría</div>';
+  if(!rows.length) return '<div class="empty-msg">Sin facturas en esta categoria</div>';
   const hasEmp = rows.some(f=>f.empresa);
-  const total = rows.reduce((a,f)=>a+f.monto,0);
-  const span = hasEmp?5:4;
-  let html = '<table class="fact-table"><thead><tr><th>Razón Social</th>';
+  const total  = rows.reduce((a,f)=>a+f.monto,0);
+  const span   = hasEmp?5:4;
+  let html = '<table class="fact-table"><thead><tr><th>Razon Social</th>';
   if(hasEmp) html += '<th>Empresa</th>';
   html += '<th>Tipo Prod.</th><th>Fecha</th><th>Monto Neto</th></tr></thead><tbody>';
   rows.forEach(f => {
     html += '<tr>';
-    html += '<td>' + f.razon + (f.tipo_doc===61?' <span class="nc-badge">N/C</span>':'') + '</td>';
-    if(hasEmp) html += '<td style="color:#718096;font-size:.68rem">' + (f.empresa||'') + '</td>';
-    html += '<td style="color:#718096">' + f.tipo_prod + '</td>';
-    html += '<td style="color:#718096">' + f.fecha + '</td>';
-    html += '<td style="color:' + cls + '">' + fmtPlain(f.monto) + '</td>';
+    html += '<td>'+f.razon+(f.tipo_doc===61?' <span class="nc-badge">N/C</span>':'')+'</td>';
+    if(hasEmp) html += '<td style="color:#718096;font-size:.68rem">'+(f.empresa||'')+'</td>';
+    html += '<td style="color:#718096">'+f.tipo_prod+'</td>';
+    html += '<td style="color:#718096">'+f.fecha+'</td>';
+    html += '<td style="color:'+cls+'">'+fmtPlain(f.monto)+'</td>';
     html += '</tr>';
   });
-  html += '<tr style="border-top:1px solid #2d3748"><td colspan="' + span + '" style="color:' + cls + ';font-weight:700">Total</td>';
-  html += '<td style="color:' + cls + ';font-weight:700">' + fmtPlain(total) + '</td></tr>';
+  html += '<tr style="border-top:1px solid #2d3748"><td colspan="'+span+'" style="color:'+cls+';font-weight:700">Total</td>';
+  html += '<td style="color:'+cls+';font-weight:700">'+fmtPlain(total)+'</td></tr>';
   html += '</tbody></table>';
   return html;
 }
@@ -371,11 +441,11 @@ function renderCatRows(cats, idPrefix) {
   return cats.map((c,i) => {
     const confW = c.ppto?Math.min(c.confirmado/c.ppto*100,100):(c.confirmado>0?100:0);
     const posW  = c.ppto?Math.min((c.confirmado+c.posible)/c.ppto*100,100)-confW:(c.posible>0?30:0);
-    const bc=barColor(c.pct), dispColor=c.disponible>=0?'#68d391':'#fc5a5a';
+    const bc = barColor(c.pct), dispColor = c.disponible>=0?'#68d391':'#fc5a5a';
     const hasSinPpto = c.ppto===0 && (c.confirmado>0||c.posible>0);
     const rowId = idPrefix+'-'+i;
     let html = '<div class="cat-row"'+(hasSinPpto?' style="border-left:3px solid #f6ad55"':'')+'>';
-    html += '<div class="cat-header" id="hdr-'+rowId+'"" data-r="'+rowId+'" onclick="toggleRow(this.dataset.r)">';
+    html += '<div class="cat-header" id="hdr-'+rowId+'" data-r="'+rowId+'" onclick="toggleRow(this.dataset.r)">';
     html += '<div class="cat-name">'+c.cat+'</div>';
     html += '<div class="cat-bar-wrap"><div class="cat-bar-bg">';
     html += '<div class="cat-bar-p" style="left:0;width:'+Math.min(confW+posW,100)+'%"></div>';
@@ -384,49 +454,49 @@ function renderCatRows(cats, idPrefix) {
     html += '<div class="col-r">'+fmt(c.confirmado)+'</div>';
     html += '<div class="col-p">'+(c.posible>0?fmt(c.posible):'<span style="color:#4a5568">$0</span>')+'</div>';
     html += '<div class="col-b">'+(c.ppto>0?fmtPlain(c.ppto):(hasSinPpto?'<span style="color:#f6ad55;font-weight:700">$0</span>':'—'))+'</div>';
-    const dispShow = c.ppto>0 ? fmtPlain(c.disponible) : (c.confirmado>0 ? '<span style="color:#fc5a5a;font-weight:700">-'+fmtPlain(c.confirmado)+'</span>' : (c.posible>0?'<span style="color:#fc8181">-'+fmtPlain(c.posible)+'</span>':'—'));
+    const dispShow = c.ppto>0 ? fmtPlain(c.disponible) : (c.confirmado>0?'<span style="color:#fc5a5a;font-weight:700">-'+fmtPlain(c.confirmado)+'</span>':(c.posible>0?'<span style="color:#fc8181">-'+fmtPlain(c.posible)+'</span>':'—'));
     html += '<div class="col-d" style="color:'+(c.ppto>0?dispColor:(hasSinPpto?'#fc5a5a':'#4a5568'))+'">'+dispShow+'</div>';
     html += '<div class="col-pct">'+badgePct(c.pct,hasSinPpto)+'</div>';
-    html += '<div class="chevron" id="chev-'+rowId+'">▼</div>';
+    html += '<div class="chevron" id="chev-'+rowId+'">&#9660;</div>';
     html += '</div>';
     html += '<div class="facturas-wrap" id="fw-'+rowId+'">';
     html += '<div class="fact-section">';
-    html += '<div class="fact-section-title conf">✓ Confirmados (SI)<span class="sect-total">'+fmtPlain(c.confirmado)+'</span></div>';
+    html += '<div class="fact-section-title conf">Confirmados (SI)<span class="sect-total">'+fmtPlain(c.confirmado)+'</span></div>';
     html += mkFactTable(c.facturas_conf,'#68d391');
     html += '</div>';
     html += '<div class="fact-section" style="border-top:1px solid #1e2233">';
-    html += '<div class="fact-section-title pos">◌ Posibles (pendiente aprobación)<span class="sect-total">'+fmtPlain(c.posible)+'</span></div>';
+    html += '<div class="fact-section-title pos">Posibles (pendiente aprobacion)<span class="sect-total">'+fmtPlain(c.posible)+'</span></div>';
     html += mkFactTable(c.facturas_pos,'#90cdf4');
     html += '</div></div></div>';
     return html;
   }).join('');
 }
 
-function renderDetail(){
-  // Show individual empresa if card was clicked (singleMode), else show group consolidated
+function renderDetail() {
+  const DATA = getActiveData();
   const emps = singleMode ? [activeEmp] : getEmpresasVisibles();
   const isGroup = emps.length > 1;
   const totalConf = emps.reduce((a,e)=>a+DATA[e].total_conf,0);
   const totalPos  = emps.reduce((a,e)=>a+DATA[e].total_pos,0);
   const totalPpto = emps.reduce((a,e)=>a+DATA[e].total_ppto,0);
-  const pct = totalPpto?(totalConf/totalPpto*100).toFixed(1):0;
+  const pct   = totalPpto?(totalConf/totalPpto*100).toFixed(1):0;
   const color = isGroup?'#63b3ed':DATA[activeEmp].color;
-  const grupoLabel = activeGrupo === 'all' ? 'Todos los Grupos' : activeGrupo;
-  let label = isGroup
-    ? '<span style="color:#63b3ed">◈ '+grupoLabel+'</span> — Consolidado del Grupo'
-    : '<span style="color:'+DATA[activeEmp].color+'">● '+activeEmp+'</span> — Detalle por Categoría GAV';
+  const gLabel = activeGrupo === 'all' ? 'Todos los Grupos' : activeGrupo;
+  const label = isGroup
+    ? '<span style="color:#63b3ed">&#9672; '+gLabel+'</span> — Consolidado del Grupo'
+    : '<span style="color:'+DATA[activeEmp].color+'">&#9679; '+activeEmp+'</span> — Detalle por Categoria GAV';
   document.getElementById('dp-title').innerHTML = label;
   document.getElementById('dp-totals').innerHTML =
     '<div>Confirmado: <span>'+fmtPlain(totalConf)+'</span></div>'+
     '<div>Posible: <span style="color:#90cdf4">'+fmtPlain(totalPos)+'</span></div>'+
     '<div>PPTO: <span>'+fmtPlain(totalPpto)+'</span></div>'+
-    '<div>Ejecución: <span style="color:'+color+'">'+pct+'%</span></div>';
-  const cats = buildCats(emps);
-  const prefix = (isGroup?activeGrupo:activeEmp).replace(/ /g,'_');
+    '<div>Ejecucion: <span style="color:'+color+'">'+pct+'%</span></div>';
+  const cats   = buildCats(emps);
+  const prefix = (isGroup?gLabel:activeEmp).replace(/ /g,'_');
   document.getElementById('cat-rows').innerHTML = renderCatRows(cats, prefix);
 }
 
-function toggleRow(id){
+function toggleRow(id) {
   const fw   = document.getElementById('fw-'+id);
   const chev = document.getElementById('chev-'+id);
   const hdr  = document.getElementById('hdr-'+id);
@@ -436,19 +506,20 @@ function toggleRow(id){
 }
 
 function renderSC() {
+  const sc   = getActiveSC();
   const emps = singleMode ? [activeEmp] : getEmpresasVisibles();
-  const rows = SIN_CLASIFICAR.filter(r => emps.includes(r.empresa));
-  const total = rows.reduce((a,r)=>a+r.monto, 0);
+  const rows = sc.filter(r => emps.includes(r.empresa));
+  const total = rows.reduce((a,r)=>a+r.monto,0);
   const panel = document.getElementById('sc-panel');
   if(!rows.length) { panel.style.display='none'; return; }
   panel.style.display = 'block';
-  document.getElementById('sc-count').textContent = rows.length + ' factura'+(rows.length===1?'':'s');
+  document.getElementById('sc-count').textContent = rows.length+' factura'+(rows.length===1?'':'s');
   document.getElementById('sc-total').textContent = fmtPlain(total);
   const showEmp = emps.length > 1;
   let html = '<table class="fact-table" style="margin:12px 20px 0;width:calc(100% - 40px)">';
   html += '<thead><tr>';
   if(showEmp) html += '<th>Empresa</th>';
-  html += '<th>Razón Social</th><th>Tipo Prod.</th><th>Fecha</th><th>Estado</th><th>Monto Neto</th></tr></thead><tbody>';
+  html += '<th>Razon Social</th><th>Tipo Prod.</th><th>Fecha</th><th>Estado</th><th>Monto Neto</th></tr></thead><tbody>';
   rows.forEach(r => {
     html += '<tr>';
     if(showEmp) html += '<td style="color:#718096;font-size:.68rem">'+r.empresa+'</td>';
@@ -474,8 +545,8 @@ function toggleSC() {
   chev.classList.toggle('open', open);
 }
 
-function selectEmp(emp){
-  activeEmp = emp;
+function selectEmp(emp) {
+  activeEmp  = emp;
   singleMode = true;
   renderCards();
   renderDetail();
@@ -483,6 +554,10 @@ function selectEmp(emp){
 }
 
 // INIT
+(function() {
+  const el = document.getElementById('hdr-actualizacion');
+  el.innerHTML = '&#x1F504; Ultima actualizacion: <strong style="color:#90cdf4">' + GENERADO.junio + '</strong>';
+})();
 renderCards();
 renderStrip();
 renderDetail();
